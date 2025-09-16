@@ -14,10 +14,10 @@ export default function HomePage() {
     selectedCategory === "Todos" ? projects : projects.filter((project) => project.category === selectedCategory)
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background scroll-smooth">
       <Header />
 
-      <main className="container mx-auto px-4 py-12">
+      <main id="projetos" className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-foreground mb-2 text-balance">Projetos dos Estudantes</h2>
           <p className="text-muted-foreground text-pretty">Filtre por categoria para encontrar projetos específicos</p>

@@ -1,4 +1,7 @@
+"use client"
+
 import { GraduationCap, Code, Users, Trophy, Star, BookOpen } from "lucide-react"
+import React from "react"
 
 export function Header() {
   return (
@@ -53,9 +56,17 @@ export function Header() {
             </div>
 
             {/* CTA Button */}
-            <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <a
+              href="#projetos"
+              onClick={(e) => {
+                e.preventDefault()
+                const section = document.getElementById("projetos")
+                section?.scrollIntoView({ behavior: "smooth", block: "start" })
+              }}
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
+            >
               Explorar Projetos
-            </button>
+            </a>
           </div>
 
           {/* Right visual area */}
