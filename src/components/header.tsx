@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 
 import { GraduationCap, Code, Users, Trophy, Star, BookOpen } from "lucide-react"
 import React from "react"
@@ -80,8 +81,8 @@ export function Header() {
 
                 {/* Center icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/20 backdrop-blur-sm p-6 rounded-full border border-white/30">
-                    <Code className="w-16 h-16 text-white" />
+                  <div className="bg-white/20 backdrop-blur-sm p-6 rounded-full border border-white/30 w-50 h-50 flex items-center justify-center">
+                    <Image src="/logo-if.png" alt="IFPR" width={100} height={100} />
                   </div>
                 </div>
               </div>
