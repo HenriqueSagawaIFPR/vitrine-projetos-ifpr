@@ -108,7 +108,7 @@ export const projects: Project[] = [
     description: "Juntos por uma Assis Chateaubriand mais limpa e sustentável! Este site é a nossa central de informações para fortalecer a coleta seletiva na cidade. Descubra como sua participação é fundamental para o meio ambiente e para apoiar as cooperativas de reciclagem locais. Explore, informe-se e faça parte dessa transformação. O futuro da nossa cidade passa pelas suas mãos.",
     author: "Maria Fernando, Mariah",
     class: "Técnico em Informática para Internet - 3° ano",
-    previewImage: "/pfc-7.png",
+    previewImage: "/pfc-8.png",
     siteUrl: "https://coletareact.vercel.app/",
     githubUrl: "",
     technologies: ["React.Js", "JavaScript", "Node.Js"],
