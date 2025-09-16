@@ -5,6 +5,7 @@ import { ExternalLink, Github, User, GraduationCap } from "lucide-react"
 import { LikeButton } from "@/components/like-button"
 import type { Project } from "@/data/projects"
 import Image from "next/image"
+import Link from "next/link"
 
 interface ProjectCardProps {
   project: Project
@@ -15,13 +16,25 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border">
       <CardHeader className="p-0">
         <div className="relative overflow-hidden rounded-t-lg">
-          <Image
-            src={project.previewImage || "/placeholder.svg"}
-            alt={`Preview do projeto ${project.name}`}
-            width={400}
-            height={300}
-            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          {project.siteUrl ? (
+            <Link href={project.siteUrl} target="_blank" rel="noopener noreferrer" aria-label={`Abrir site de ${project.name}`}>
+              <Image
+                src={project.previewImage || "/placeholder.svg"}
+                alt={`Preview do projeto ${project.name}`}
+                width={400}
+                height={300}
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
+          ) : (
+            <Image
+              src={project.previewImage || "/placeholder.svg"}
+              alt={`Preview do projeto ${project.name}`}
+              width={400}
+              height={300}
+              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          )}
           <div className="absolute top-3 right-3">
             <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
               {project.category}
