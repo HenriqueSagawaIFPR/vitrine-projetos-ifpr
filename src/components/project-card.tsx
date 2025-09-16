@@ -1,0 +1,83 @@
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { ExternalLink, Github, User, GraduationCap } from "lucide-react"
+import { LikeButton } from "@/components/like-button"
+import type { Project } from "@/data/projects"
+import Image from "next/image"
+
+interface ProjectCardProps {
+  project: Project
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
+  return (
+    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border">
+      <CardHeader className="p-0">
+        <div className="relative overflow-hidden rounded-t-lg">
+          <Image
+            src={project.previewImage || "/placeholder.svg"}
+            alt={`Preview do projeto ${project.name}`}
+            width={400}
+            height={300}
+            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute top-3 right-3">
+            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+              {project.category}
+            </Badge>
+          </div>
+          <div className="absolute top-3 left-3">
+            <div className="bg-white/90 backdrop-blur-sm rounded-full p-1">
+              <LikeButton projectId={project.id} />
+            </div>
+          </div>
+        </div>
+      </CardHeader>
+
+      <CardContent className="p-6">
+        <h3 className="text-xl font-bold text-foreground mb-2 text-balance">{project.name}</h3>
+
+        <p className="text-muted-foreground text-sm mb-4 text-pretty leading-relaxed">{project.description}</p>
+
+        <div className="space-y-3">
+          <div className="flex items-center gap-2 text-sm">
+            <User className="w-4 h-4 text-primary" />
+            <span className="font-medium text-foreground">{project.author}</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-sm">
+            <GraduationCap className="w-4 h-4 text-primary" />
+            <span className="text-muted-foreground">{project.class}</span>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mt-4">
+          {project.technologies.map((tech) => (
+            <Badge key={tech} variant="outline" className="text-xs">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      </CardContent>
+
+      <CardFooter className="p-6 pt-0 flex gap-2">
+        {project.siteUrl && (
+          <Button asChild className="flex-1">
+            <a href={project.siteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <ExternalLink className="w-4 h-4" />
+              Ver Site
+            </a>
+          </Button>
+        )}
+
+        <Button asChild variant="outline" className="flex-1 bg-transparent">
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <Github className="w-4 h-4" />
+            GitHub
+          </a>
+        </Button>
+      </CardFooter>
+    </Card>
+  )
+}
