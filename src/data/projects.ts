@@ -125,7 +125,67 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/hhartur/hyperium",
     technologies: ["Next.js", "TypeScript", "Prisma", "TailwindCSS", "shadcn", "ESLint"],
     category: "IIW2024A"
-  }
+  },
+  {
+    id: "10",
+    name: "Jogo da Memória do Computaria",
+    description: "Um jogo da memória online com cartas temáticas de computação, simples e divertido.",
+    author: "Rafael Henrique Rodrigues de Alcantara",
+    class: "IIW2023A",
+    previewImage: "/jogo-da-memoria.png",
+    siteUrl: "https://computariamemoria.netlify.app/",
+    githubUrl: "https://github.com/RafaelAlcantara1/Jogo-da-mem-ria",
+    technologies: ["JavaScript", "CSS", "HTML"],
+    category: "IIW2023A"
+  },
+  {
+    id: '11',
+    name: "Jogo Torre de Blocos",
+    description: "Um jogo simples onde o objetivo é empilhar blocos o mais alto possível sem deixar cair.",
+    author: "Henrique Tutomu Sagawa",
+    class: "IIW2023A",
+    previewImage: "/torre-de-blocos.png",
+    siteUrl: "https://torre-de-blocos-three.vercel.app/",
+    githubUrl: "https://github.com/HenriqueSagawa/Torre-de-Blocos",
+    technologies: ["JavaScript", "CSS", "HTML"],
+    category: "IIW2023A"
+  },
+  {
+    id: '12',
+    name: "E-Commerce para Venda de Chopp",
+    description: "Um e-commerce simples para venda de chopp, com catálogo de produtos, carrinho de compras e checkout.",
+    author: "Henrique Tutomu Sagawa",
+    class: "IIW2023A",
+    previewImage: "/chopp-benteo.png",
+    siteUrl: "https://chopbenteo.netlify.app/",
+    githubUrl: "https://github.com/HenriqueSagawa/Projeto-Chopp-Benteo",
+    technologies: ["JavaScript", "CSS", "HTML" ],
+    category: "IIW2023A"
+  },
+  {
+    id: "13",
+    name: "Cine Search",
+    description: "Aplicação web para busca e exibição de filmes utilizando uma API externa.",
+    author: "Henrique Tutomu Sagawa",
+    class: "IIW2023A",
+    previewImage: "/cine-search.png",
+    siteUrl: "https://cine-search-teal.vercel.app/",
+    githubUrl: "https://github.com/HenriqueSagawaIFPR/cine-search",
+    technologies: ["Next.Js", "React.Js", "TypeScript", "TailwindCSS", "Node.Js"],
+    category: "IIW2023A"
+  },
+  {
+    id: "14",
+    name: "Flor de CSS",
+    description: "Uma flor bonita e moderna, desenvolvida apenas com HTML, CSS e um pouco de javaScript.",
+    author: "Henrique Tutomu Sagawa",
+    class: "IIW2023A",
+    previewImage: "/flor.png",
+    siteUrl: "https://palmeiras.netlify.app/",
+    githubUrl: "",
+    technologies: ["CSS", "HTML", "JavaScript"],
+    category: "IIW2023A"
+  }
 ]
 
 export const categories = ["Todos", "IIW2023A", "IIW2024A"]
