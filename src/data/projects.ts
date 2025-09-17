@@ -113,7 +113,20 @@ export const projects: Project[] = [
     githubUrl: "",
     technologies: ["React.Js", "JavaScript", "Node.Js"],
     category: "IIW2023A"
-  }
+  },
+  {
+    id: "9",
+    name: "Hyperium",
+    description: "Loja de jogos online desenvolvida com Next.js, Prisma e TypeScript. O projeto utiliza TailwindCSS e shadcn para a interface, além de ESLint para padronização e qualidade do código.",
+    author: "Artur, Brayan e Welington",
+    class: "IIW2024A",
+    previewImage: "https://xhwdonvhshbzdtdjzase.supabase.co/storage/v1/object/public/games/hyperium-logo.png",
+    siteUrl: "https://hyperiumgamestore.vercel.app",
+    githubUrl: "https://github.com/hhartur/hyperium",
+    technologies: ["Next.js", "TypeScript", "Prisma", "TailwindCSS", "shadcn", "ESLint"],
+    category: "IIW2024A"
+  }
 ]
 
 export const categories = ["Todos", "IIW2023A", "IIW2024A"]
+
