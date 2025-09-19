@@ -8,7 +8,7 @@ export function Footer() {
           <span>Desenvolvido com</span>
           ☕
           <span>pelos estudantes do IFPR e mantido pelos servidores</span>
-          <Link href="https://github.com/HenriqueSagawaIFPR/vitrine-projetos-ifpr" target="_blank" classname="text-blue-500">Acessar repositório no Github</Link>
+          <Link href="https://github.com/HenriqueSagawaIFPR/vitrine-projetos-ifpr" target="_blank">Acessar repositório no Github</Link>
         </div>
         <p className="text-sm text-muted-foreground">
           © {new Date().getFullYear()} Instituto Federal do Paraná - Todos os direitos reservados
@@ -17,6 +17,7 @@ export function Footer() {
     </footer>
   )
 }
+
 
 
 
