@@ -185,8 +185,21 @@ export const projects: Project[] = [
     githubUrl: "",
     technologies: ["CSS", "HTML", "JavaScript"],
     category: "IIW2023A"
+  },
+  {
+    id: "15",
+    name: "Plataforma de Dados sobre Espécies Arbóreas Nativas: Estratégias para a Conservação e Restauração da Flora Endêmica Chateaubriandense",
+    description: "Mapeamento digital das árvores nativas de Assis Chateaubriand para proteger espécies ameaçadas e restaurar a vegetação local. Uma ferramenta essencial para a conservação da nossa biodiversidade.",
+    author: "Paulo Neto, Mariana Rangel",
+    class: "IIW2023A",
+    previewImage: "/pfc-9.png",
+    siteUrl: "https://plataformadedados.netlify.app/",
+    githubUrl: "",
+    technologies: ["CSS", "HTML", "JavaScript", "Node.Js"],
+    category: "IIW2023A"
   }
 ]
 
 export const categories = ["Todos", "IIW2023A", "IIW2024A"]
+
 
