@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   generateEtags: true,
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
   async headers() {
     return [
