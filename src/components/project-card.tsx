@@ -20,19 +20,25 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Link href={project.siteUrl} target="_blank" rel="noopener noreferrer" aria-label={`Abrir site de ${project.name}`}>
               <Image
                 src={project.previewImage || "/placeholder.svg"}
-                alt={`Preview do projeto ${project.name}`}
+                alt={`Preview do projeto ${project.name} - ${project.description.substring(0, 100)}...`}
                 width={400}
                 height={300}
                 className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                priority={false}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </Link>
           ) : (
             <Image
               src={project.previewImage || "/placeholder.svg"}
-              alt={`Preview do projeto ${project.name}`}
+              alt={`Preview do projeto ${project.name} - ${project.description.substring(0, 100)}...`}
               width={400}
               height={300}
               className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+              priority={false}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           )}
           <div className="absolute top-3 right-3">

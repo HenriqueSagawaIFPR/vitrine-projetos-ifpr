@@ -19,7 +19,12 @@ export default function HomePage() {
 
       <main id="projetos" className="container mx-auto px-4 py-12">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-foreground mb-2 text-balance">Projetos dos Estudantes</h2>
+          <h1 className="text-3xl font-bold text-foreground mb-4 text-balance">Repositório de Projetos Finais de Curso - IFPR</h1>
+          <p className="text-lg text-muted-foreground text-pretty mb-6">
+            Explore projetos desenvolvidos por estudantes do curso técnico em Informática para Internet do Instituto Federal do Paraná. 
+            Descubra trabalhos inovadores em React, Next.js, JavaScript, TypeScript e outras tecnologias modernas.
+          </p>
+          <h2 className="text-2xl font-semibold text-foreground mb-2">Projetos dos Estudantes</h2>
           <p className="text-muted-foreground text-pretty">Filtre por categoria para encontrar projetos específicos</p>
         </div>
 
