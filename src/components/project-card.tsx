@@ -1,11 +1,24 @@
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, User, GraduationCap } from "lucide-react"
+import { ExternalLink, Github, User, GraduationCap, Eye } from "lucide-react"
 import { LikeButton } from "@/components/like-button"
+import { ProjectRating } from "@/components/project-rating"
 import type { Project } from "@/data/projects"
 import Image from "next/image"
 import Link from "next/link"
+
+// Função para gerar slug a partir do nome do projeto
+function generateSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim()
+}
 
 interface ProjectCardProps {
   project: Project
@@ -78,11 +91,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Badge>
           ))}
         </div>
+
+        {/* Avaliação do projeto */}
+        <div className="mt-4 pt-4 border-t border-border">
+          <ProjectRating projectId={project.id} />
+        </div>
       </CardContent>
 
       <CardFooter className="p-6 pt-0 flex gap-2">
+        <Button asChild className="flex-1">
+          <Link href={`/projetos/${generateSlug(project.name)}`} className="flex items-center gap-2">
+            <Eye className="w-4 h-4" />
+            Ver Detalhes
+          </Link>
+        </Button>
+
         {project.siteUrl && (
-          <Button asChild className="flex-1">
+          <Button asChild variant="outline" className="flex-1">
             <a href={project.siteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <ExternalLink className="w-4 h-4" />
               Ver Site
@@ -90,12 +115,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Button>
         )}
 
-        <Button asChild variant="outline" className="flex-1 bg-transparent">
-          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-            <Github className="w-4 h-4" />
-            GitHub
-          </a>
-        </Button>
+        {project.githubUrl && (
+          <Button asChild variant="outline" className="flex-1">
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <Github className="w-4 h-4" />
+              GitHub
+            </a>
+          </Button>
+        )}
       </CardFooter>
     </Card>
   )

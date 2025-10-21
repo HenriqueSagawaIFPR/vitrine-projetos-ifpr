@@ -37,6 +37,18 @@ export function StructuredData() {
     }
   }
 
+  // Função para gerar slug a partir do nome do projeto
+  function generateSlug(name: string): string {
+    return name
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .trim()
+  }
+
   const projectSchemas = projects.map(project => ({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -49,7 +61,7 @@ export function StructuredData() {
     "dateCreated": "2023",
     "genre": "Educational Project",
     "keywords": project.technologies.join(", "),
-    "url": project.siteUrl || `https://repositorio-projetos-ifpr.vercel.app/projeto/${project.id}`,
+    "url": `https://repositorio-projetos-ifpr.vercel.app/projetos/${generateSlug(project.name)}`,
     "image": project.previewImage.startsWith('http') 
       ? project.previewImage 
       : `https://repositorio-projetos-ifpr.vercel.app${project.previewImage}`,
@@ -59,6 +71,31 @@ export function StructuredData() {
       "name": "Repositório de Projetos IIW - IFPR"
     }
   }))
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Projetos Finais de Curso - IFPR",
+    "description": "Lista de projetos desenvolvidos por estudantes do curso técnico em Informática para Internet do IFPR",
+    "numberOfItems": projects.length,
+    "itemListElement": projects.map((project, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "CreativeWork",
+        "name": project.name,
+        "description": project.description,
+        "url": `https://repositorio-projetos-ifpr.vercel.app/projetos/${generateSlug(project.name)}`,
+        "image": project.previewImage.startsWith('http') 
+          ? project.previewImage 
+          : `https://repositorio-projetos-ifpr.vercel.app${project.previewImage}`,
+        "author": {
+          "@type": "Person",
+          "name": project.author
+        }
+      }
+    }))
+  }
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -97,6 +134,12 @@ export function StructuredData() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(itemListSchema)
         }}
       />
       {projectSchemas.map((schema, index) => (

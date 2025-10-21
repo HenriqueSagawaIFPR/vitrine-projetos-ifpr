@@ -56,18 +56,29 @@ export function Header() {
               </p>
             </div>
 
-            {/* CTA Button */}
-            <a
-              href="#projetos"
-              onClick={(e) => {
-                e.preventDefault()
-                const section = document.getElementById("projetos")
-                section?.scrollIntoView({ behavior: "smooth", block: "start" })
-              }}
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
-            >
-              Explorar Projetos
-            </a>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#projetos"
+                onClick={(e) => {
+                  e.preventDefault()
+                  const section = document.getElementById("projetos")
+                  section?.scrollIntoView({ behavior: "smooth", block: "start" })
+                }}
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block text-center"
+              >
+                Explorar Projetos
+              </a>
+              
+              <a
+                href="https://www.ifpr.edu.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white hover:bg-gray-50 text-green-600 border-2 border-green-600 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block text-center"
+              >
+                Conhecer o IFPR
+              </a>
+            </div>
           </div>
 
           {/* Right visual area */}
@@ -82,7 +93,14 @@ export function Header() {
                 {/* Center icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="bg-white/20 backdrop-blur-sm p-6 rounded-full border border-white/30 w-50 h-50 flex items-center justify-center">
-                    <Image src="/logo-if.png" alt="IFPR" width={100} height={100} />
+                    <Image 
+                      src="/logo-if.png" 
+                      alt="Logo do IFPR - Instituto Federal do Paraná" 
+                      width={100} 
+                      height={100}
+                      priority
+                      sizes="100px"
+                    />
                   </div>
                 </div>
               </div>
